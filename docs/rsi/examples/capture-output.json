@@ -1,0 +1,22 @@
+{
+  "observations": [
+    {
+      "signal_type": "user_correction",
+      "summary": "The agent requested stakeholder information already present in approved context.",
+      "trigger_context": "The user corrected a repeated stakeholder-clarification question.",
+      "expected_behavior": "Use confirmed stakeholder information unless there is evidence it needs reconfirmation.",
+      "observed_behavior": "The agent asked the user to supply stakeholder names again.",
+      "supporting_refs": [
+        "artifact:approved-context:stakeholders",
+        "message:assistant:12",
+        "message:user:13"
+      ],
+      "contradicting_refs": [],
+      "suspected_cause": "The confirmed requirements context may not have been consulted before asking.",
+      "attempted_fix": null,
+      "fix_status": "not_attempted",
+      "verification_refs": [],
+      "related_observation_ids": []
+    }
+  ]
+}

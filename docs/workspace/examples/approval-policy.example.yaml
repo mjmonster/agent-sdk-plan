@@ -1,0 +1,47 @@
+# SYNTHETIC DOCUMENTATION EXAMPLE — NOT PRODUCTION CONFIGURATION
+example_only: true
+schema_version: '0.1'
+policy_set_id: client-demo-policy
+revision_placeholder: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+default_behavior:
+  unknown_owner: block_protected_effect
+  unknown_approver: reject_evidence
+  model_authored_identity: reject_evidence
+  changed_covered_content: require_reapproval
+  changed_relevant_dependency: require_revalidation
+  policy_edits: evaluate_under_existing_trusted_policy
+gate_rules:
+- id: brd-baseline
+  kind: lifecycle
+  required_roles:
+  - role: business_owner
+    min_approvals: 1
+  accepted_evidence_sources:
+  - github_pr_review
+  required_checks:
+  - approval-controller
+  allow_transition_after: verified_merge_and_persisted_baseline
+- id: technical-spec-baseline
+  kind: lifecycle
+  required_roles:
+  - role: technical_owner
+    min_approvals: 1
+  accepted_evidence_sources:
+  - github_pr_review
+- id: bounded-document-sharing
+  kind: decision_action
+  required_roles:
+  - role: business_owner
+    min_approvals: 1
+  - role: information_owner
+    min_approvals: 1
+  distinct_humans_across_roles: true
+  accepted_evidence_sources:
+  - github_pr_review
+  require_exact_parameters: true
+  require_expiry: true
+  max_uses: 1
+security_notes:
+- The approval-controller check is published only by the configured trusted app.
+- Role labels require approved identity bindings; no real role assignments are supplied.
+- This template does not configure GitHub protection or Jira workflows.

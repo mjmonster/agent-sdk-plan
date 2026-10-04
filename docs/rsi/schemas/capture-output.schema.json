@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.invalid/sdlc-rsi/capture-output.schema.json",
+  "title": "Capture extractor output v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "observations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/observation"
+      },
+      "minItems": 0,
+      "maxItems": 10,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "observations"
+  ],
+  "$defs": {
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "signal_type": {
+          "enum": [
+            "user_correction",
+            "user_requested_policy",
+            "behavior_mismatch",
+            "tool_failure",
+            "verification_failure",
+            "verified_recovery"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "trigger_context": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "expected_behavior": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observed_behavior": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "supporting_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "minItems": 1,
+          "maxItems": 100,
+          "uniqueItems": true
+        },
+        "contradicting_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "minItems": 0,
+          "maxItems": 100,
+          "uniqueItems": true
+        },
+        "suspected_cause": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "attempted_fix": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fix_status": {
+          "enum": [
+            "not_attempted",
+            "attempted_unverified",
+            "verified"
+          ]
+        },
+        "verification_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "minItems": 0,
+          "maxItems": 100,
+          "uniqueItems": true
+        },
+        "related_observation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "minItems": 0,
+          "maxItems": 100,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "signal_type",
+        "summary",
+        "trigger_context",
+        "expected_behavior",
+        "observed_behavior",
+        "supporting_refs",
+        "contradicting_refs",
+        "suspected_cause",
+        "attempted_fix",
+        "fix_status",
+        "verification_refs",
+        "related_observation_ids"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "fix_status": {
+                "const": "verified"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "attempted_fix": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "verification_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "fix_status": {
+                "const": "not_attempted"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "attempted_fix": {
+                "type": "null"
+              },
+              "verification_refs": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "fix_status": {
+                "const": "attempted_unverified"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "attempted_fix": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "verification_refs": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "signal_type": {
+                "const": "verified_recovery"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "fix_status": {
+                "const": "verified"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

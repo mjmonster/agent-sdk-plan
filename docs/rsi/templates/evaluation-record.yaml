@@ -1,0 +1,29 @@
+# Illustrative record template, not a runtime configuration or measured result.
+schema_version: "0.1.0"
+evaluation_id: "REPLACE_WITH_TRUSTED_RUN_ID"
+candidate_id: "REPLACE_WITH_CANDIDATE_ID"
+candidate_revision: 1
+baseline_commit: "REPLACE_WITH_RESOLVED_COMMIT"
+candidate_commit: "REPLACE_WITH_RESOLVED_COMMIT"
+evaluation_set_revision: "REPLACE_WITH_PINNED_REVISION"
+evaluator_revision: "REPLACE_WITH_PINNED_REVISION"
+policy_revision: "REPLACE_WITH_PINNED_REVISION"
+model_configuration_ref: "REPLACE_WITH_SANITIZED_CONFIG_REFERENCE"
+kit_version: "REPLACE_WITH_RESOLVED_VERSION"
+assessment_role: "development" # development or protected_assessment
+repetitions_per_case: null # Set before running.
+acceptance_thresholds: null # Set and approve before seeing results.
+mandatory_invariants:
+  - approval_requirements_unchanged
+  - workspace_access_isolation_preserved
+  - artifact_integrity_preserved
+results: [] # Preserve per-case outcomes, failures, and evidence references.
+baseline_metrics: null
+candidate_metrics: null
+costs:
+  baseline: null
+  candidate: null
+  improvement_search_total: null
+uncertainty: null
+outcome: "not_run" # not_run, passed, failed, or inconclusive
+completed_at: null

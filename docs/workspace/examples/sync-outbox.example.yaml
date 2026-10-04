@@ -1,0 +1,28 @@
+# SYNTHETIC DOCUMENTATION EXAMPLE — NOT PRODUCTION CONFIGURATION
+example_only: true
+schema_version: '0.1'
+operation_id: SYNC-DEMO-0001
+tenant_id: CLIENT-DEMO
+workspace_id: WS-DEMO-001
+operation: jira.upsert_external_link
+provider_instance_id: jira-tenant-demo
+source_event_id: BASELINE-DEMO-ACCEPTED
+provider_target:
+  issue_id: '10120'
+  display_key: PAY-120
+parameters:
+  global_id: sdlc:CLIENT-DEMO:WS-DEMO-001:BRD-DEMO-001
+  title: Accepted BRD baseline
+  target_ref:
+    repository_id: github-repo-demo-001
+    commit: dddddddddddddddddddddddddddddddddddddddd
+    path: workspaces/WS-DEMO-001/artifacts/BRD.md
+preconditions:
+  baseline_id: BASELINE-DEMO-001
+  baseline_accepted: true
+  link_visibility_authorized: true
+status: pending
+attempt_count: 0
+result: null
+notes: Isolated synthetic post-baseline example; the referenced baseline event is not supplied as an actual completed
+  workflow.

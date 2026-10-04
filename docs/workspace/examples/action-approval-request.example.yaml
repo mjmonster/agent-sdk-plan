@@ -1,0 +1,31 @@
+# SYNTHETIC DOCUMENTATION EXAMPLE — NOT PRODUCTION CONFIGURATION
+example_only: true
+schema_version: '0.1'
+request_id: APR-DEMO-043
+tenant_id: CLIENT-DEMO
+workspace_id: WS-DEMO-001
+kind: decision_action
+subtype: action
+stage_id: null
+subject:
+  type: bounded_action
+  intent_document_path: workspaces/WS-DEMO-001/decisions/ACT-DEMO-001.md
+  reviewed_commit: cccccccccccccccccccccccccccccccccccccccc
+  operation: share_document
+  parameters:
+    artifact_id: BRD-DEMO-001
+    artifact_sha256: '1111111111111111111111111111111111111111111111111111111111111111'
+    destination: reviewer@example.invalid
+    environment: demo
+  idempotency_key: CLIENT-DEMO:WS-DEMO-001:ACT-DEMO-001:v1
+  max_uses: 1
+policy_ref:
+  id: bounded-document-sharing
+  path: governance/approval-policy.yaml
+  commit: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+expires_at: '2026-10-02T17:10:00Z'
+request_state: open
+decision_evaluation: pending
+execution_state: not_authorized
+notes: Not permission to send anything. All fields are synthetic; obtain authenticated authority before any real
+  action.

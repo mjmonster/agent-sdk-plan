@@ -1,0 +1,33 @@
+# Example only. Replace IDs and names with verified registry values.
+# A trusted adapter must enforce this policy; YAML alone grants no permission.
+registry_version: "0.1.0"
+canonical_kit_name: "sdlc-dev-kit"
+legacy_name_aliases:
+  sdlc-agent-kit: sdlc-dev-kit
+repositories:
+  - repository_id: "10001"
+    full_name: "example-org/requirements-agent"
+    agent_group: "requirements"
+    owns: [requirements-clarification, requirements-artifact-generation]
+    readable_data_scopes: [example-scope]
+    proposal_base_branch: main
+    proposal_branch_prefix: "rsi/"
+    proposal_path_allowlist: ["skills/", "prompts/", "src/", "tests/"]
+    protected_paths: [".github/", "policy/", "evaluators/required/", "CODEOWNERS"]
+    reviewer_role: requirements-maintainer
+  - repository_id: "10002"
+    full_name: "example-org/sdlc-dev-kit"
+    agent_group: null
+    owns: [conversation-capture, context-loading, checkpoint-contracts]
+    readable_data_scopes: [example-scope]
+    proposal_base_branch: main
+    proposal_branch_prefix: "rsi/"
+    proposal_path_allowlist: ["skills/", "prompts/", "src/", "tests/"]
+    protected_paths: [".github/", "policy/", "evaluators/required/", "CODEOWNERS"]
+    reviewer_role: shared-kit-maintainer
+    requires_consumer_regression_evidence: true
+
+# Deny takes precedence over allow. Canonicalize paths, reject traversal and
+# symlink escapes, and do not execute candidate code with writer credentials.
+# Block changes that weaken mandatory controls even outside protected paths.
+# Resolve actual GitHub permissions and branch protections separately.

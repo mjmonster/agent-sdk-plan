@@ -1,0 +1,33 @@
+# SYNTHETIC DOCUMENTATION EXAMPLE — NOT PRODUCTION CONFIGURATION
+example_only: true
+schema_version: '0.1'
+workspace_id: WS-DEMO-001
+tenant_id: CLIENT-DEMO
+title: Payment-status notifications
+domain_tags:
+- payments
+delivery_group_id: PAYMENTS-CHANGE-PORTFOLIO
+anchor:
+  provider: jira_cloud
+  instance_id: jira-tenant-demo
+  object_id: '10120'
+  display_key: PAY-120
+mapping_policy: reuse_existing_then_configured_delivery_anchor
+storage:
+  repository_id: github-repo-demo-001
+  repository_slug: example-client/delivery-workspaces
+  artifact_ref: refs/heads/main
+  artifact_path: workspaces/WS-DEMO-001
+  control_ref: refs/heads/control
+  control_path: workspaces/WS-DEMO-001
+access_boundary_id: CLIENT-DEMO-DELIVERY
+policy_ref:
+  path: governance/approval-policy.yaml
+  commit: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+sponsor_ref: identity://demo/triage-owner
+implementation_repository_refs:
+- repo://demo/payment-api
+- repo://demo/notification-worker
+scratch_binding_ref: registry://CLIENT-DEMO/scratch
+provisioning_state: active
+notes: Synthetic example only. Repository names, identities, commits, and configuration fields are not deployed.

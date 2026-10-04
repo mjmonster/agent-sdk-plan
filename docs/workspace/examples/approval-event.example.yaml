@@ -1,0 +1,34 @@
+# SYNTHETIC DOCUMENTATION EXAMPLE — NOT PRODUCTION CONFIGURATION
+example_only: true
+schema_version: '0.1'
+event_id: EVT-DEMO-0001
+event_type: review.recorded
+tenant_id: CLIENT-DEMO
+workspace_id: WS-DEMO-001
+aggregate_id: APR-DEMO-042
+correlation_id: RUN-DEMO-001
+actor:
+  provider: github
+  provider_user_id: '100001'
+  login_snapshot: demo-business-reviewer
+  kind: human
+recorder:
+  kind: service
+  id: approval-controller-demo
+decision: approved
+subject_digest: 88821963d5bfef1c38a148af73a60ff9582e8651b4cb672321ec9f260629459f
+role_evidence:
+  role: business_owner
+  mapping_revision: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+  authority_scope: CLIENT-DEMO:WS-DEMO-001
+evidence:
+  source: github_pr_review
+  repository_id: github-repo-demo-001
+  pull_request_number: 17
+  review_id: '200001'
+  reviewed_commit: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  provider_state: APPROVED
+source_submitted_at: '2026-10-01T17:30:00Z'
+recorded_at: '2026-10-01T17:30:10Z'
+notes: Illustrative evidence shape only, not an actual user review. A single review event is not automatically gate
+  satisfaction or a merge.

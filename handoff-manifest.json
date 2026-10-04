@@ -1,0 +1,244 @@
+{
+  "format_version": 1,
+  "package": "sdlc-agent-codex-handoff",
+  "version": "1.0",
+  "prepared": "2026-10-02",
+  "sources": [
+    {
+      "archive": "sdlc-agent-rsi-docs.zip",
+      "sha256": "bb882cc9ab8283e22d2e4eda414870ea04ff0678d8946d608c1873e59fcee33a",
+      "original_archive_entries": 27,
+      "preserved_document_files": 24,
+      "manifest_entries_verified": 24
+    },
+    {
+      "archive": "sdlc-agent-workspace-docs.zip",
+      "sha256": "ffaaa156a1a7ae82b297dc45e043a18e18fe47c022696b57ee196f6187df4e51",
+      "original_archive_entries": 18,
+      "preserved_document_files": 15,
+      "manifest_entries_verified": 15
+    }
+  ],
+  "files": [
+    {
+      "path": "CODEX-HANDOFF.md",
+      "bytes": 70394,
+      "sha256": "4fd238b72a58c8a3bbd20751744249092cfd713c5e24c73dd4c0088ad4f8405c"
+    },
+    {
+      "path": "HANDOFF-VALIDATION.md",
+      "bytes": 2449,
+      "sha256": "13bd7e7585147537e7d808004acbf6c9e30f10dfbab9cf760ff4b7937478c2cc"
+    },
+    {
+      "path": "START-HERE.md",
+      "bytes": 2696,
+      "sha256": "0cb54d62269171fe659ba9037487c55500ea0321363c006747b6f2a4282e144f"
+    },
+    {
+      "path": "docs/rsi/01-agent-taxonomy.md",
+      "bytes": 4587,
+      "sha256": "f5eb519a3574e9ab55626f71fb992942118c57b7100abfcb558d55fb4f1ec4a5"
+    },
+    {
+      "path": "docs/rsi/02-system-architecture.md",
+      "bytes": 5866,
+      "sha256": "9d4031a1e3f4e6c2957c49db961111d2a5c2e8f35fb2d1d84ddf0c4acdd58c68"
+    },
+    {
+      "path": "docs/rsi/03-conversation-capture.md",
+      "bytes": 7160,
+      "sha256": "9f49da334f8dd3140480ec1d48332f636dfbf41c41410e9d185298430230ad67"
+    },
+    {
+      "path": "docs/rsi/04-github-records-and-provenance.md",
+      "bytes": 7222,
+      "sha256": "fc8f4e4e1a303c1a444c18dae4ebdb715acef88b6dde8fd8dfc05337f2267e92"
+    },
+    {
+      "path": "docs/rsi/05-dreaming-agent.md",
+      "bytes": 6738,
+      "sha256": "32543e599e3588c1ef1cdd6e647d1011a7052fcc5ba881cf54251eeef785cf4f"
+    },
+    {
+      "path": "docs/rsi/06-evaluation-and-approval.md",
+      "bytes": 6007,
+      "sha256": "0d55414bfb78d5479412747a86ef31bcec945d7c8eaf3229702e98b396733894"
+    },
+    {
+      "path": "docs/rsi/07-implementation-backlog.md",
+      "bytes": 5505,
+      "sha256": "38524276c51bb3641be1eca697bc74ff180ebc3b88cfb0ef4f3844b36bfa14bd"
+    },
+    {
+      "path": "docs/rsi/README.md",
+      "bytes": 4880,
+      "sha256": "49f520e9541124fbafee27068879c5d1eaeda8d287854ad3a7310a97ebd9ef9c"
+    },
+    {
+      "path": "docs/rsi/REFERENCES.md",
+      "bytes": 3237,
+      "sha256": "9ef4a41c43f6759f5a33c399093afaca919e8e9cd1a365232d24fe8bac3be603"
+    },
+    {
+      "path": "docs/rsi/VALIDATION.md",
+      "bytes": 1780,
+      "sha256": "93f0bdbebd81d415a44594fe5093cc72d7576969f200ad05490f6b6c3a8ffce5"
+    },
+    {
+      "path": "docs/rsi/examples/candidate.json",
+      "bytes": 2544,
+      "sha256": "1c52e0aed0fd3971304a8198b87c1dea2a0822e8c0966681b65ecbbda127036d"
+    },
+    {
+      "path": "docs/rsi/examples/capture-empty-record.json",
+      "bytes": 1001,
+      "sha256": "d3f8e02c0172156df5618af6999218bd97312c5950b047cfe1f6e7f9a612213d"
+    },
+    {
+      "path": "docs/rsi/examples/capture-empty.json",
+      "bytes": 25,
+      "sha256": "3219f8292bdb4a47a2882aa87528a231132ea9219db88c094ea0051559fad046"
+    },
+    {
+      "path": "docs/rsi/examples/capture-output.json",
+      "bytes": 898,
+      "sha256": "c6a14f9f2af7c349965ec00b4f463fa1faa71df744e692c8e0cabd0c204c6348"
+    },
+    {
+      "path": "docs/rsi/examples/capture-record.json",
+      "bytes": 2690,
+      "sha256": "25e3dc14c703c944c93eba8575cb2c0f632559bb170a4cb60e7a93351803a8a0"
+    },
+    {
+      "path": "docs/rsi/examples/repositories.example.yaml",
+      "bytes": 1578,
+      "sha256": "0d462b03af96a864213428e2089dbfd051c9b01f229e6433174c7a508fd55ff6"
+    },
+    {
+      "path": "docs/rsi/prompts/capture-system.md",
+      "bytes": 3783,
+      "sha256": "126e55997c4bb3364d1a3626a147efe0e9de5e1d073cece0cc03f041338d1d31"
+    },
+    {
+      "path": "docs/rsi/prompts/dreaming-agent-system.md",
+      "bytes": 3495,
+      "sha256": "e8edf7811e49034f2c911ca7577a0dfba42e38d08d9e2a382ad09f6594fabc45"
+    },
+    {
+      "path": "docs/rsi/schemas/candidate.schema.json",
+      "bytes": 7104,
+      "sha256": "b029453871289367beacdbe61ea95de1de9bd4bf75076a98f7bdec1eab144d6d"
+    },
+    {
+      "path": "docs/rsi/schemas/capture-output.schema.json",
+      "bytes": 5367,
+      "sha256": "a550b7a367a222047e022d84a7471bd82c98e8f54b6d3edbe9edf3e5be84c16b"
+    },
+    {
+      "path": "docs/rsi/schemas/capture-record.schema.json",
+      "bytes": 10935,
+      "sha256": "afa077f69bcf56c8ed1232544d24c95867bde637ff27def708f200dd4984e377"
+    },
+    {
+      "path": "docs/rsi/skills/conversation-capture/SKILL.md",
+      "bytes": 2223,
+      "sha256": "a94627296efe1dffbfd33621608786b0b195942e8524e4e01d20da96e686cd4a"
+    },
+    {
+      "path": "docs/rsi/templates/evaluation-record.yaml",
+      "bytes": 1194,
+      "sha256": "b954e453451afa0a335f7351699a98c6d885c8979a949efec8f4271a20daf748"
+    },
+    {
+      "path": "docs/rsi/templates/improvement-pr.md",
+      "bytes": 1910,
+      "sha256": "8ea8ca9337ee5ac959de510b9025f08e198d9d474df3a27256b7e93db98d8e4a"
+    },
+    {
+      "path": "docs/workspace/01-workspace-boundaries.md",
+      "bytes": 7897,
+      "sha256": "852f60bd08b66e940992a75c37b7ba171f86bdff4ebd03ca34172041acb4909a"
+    },
+    {
+      "path": "docs/workspace/02-shared-approval-service.md",
+      "bytes": 8749,
+      "sha256": "d0f2e92bea22d48ca7ed8059c997a25839ae999207e29f9e81d571e4f735f68c"
+    },
+    {
+      "path": "docs/workspace/03-github-persistence.md",
+      "bytes": 7314,
+      "sha256": "2edbb3518209e0f89120d7f8e11ec3666dd1f37ae800f6faaca87388a5f87b06"
+    },
+    {
+      "path": "docs/workspace/04-jira-integration.md",
+      "bytes": 10104,
+      "sha256": "4a1afdd973e9fc13baf5814933d8727893a5ec322d8a6a877db737328f667311"
+    },
+    {
+      "path": "docs/workspace/05-implementation-backlog.md",
+      "bytes": 4880,
+      "sha256": "ce524fab008c0548034b5032283072ed7c33d9d182885b2c8e2a92cf793a3aab"
+    },
+    {
+      "path": "docs/workspace/README.md",
+      "bytes": 3958,
+      "sha256": "e757ce36580faef2bf382feb749e02fd141949798eeb3bbf08d98503b5c90566"
+    },
+    {
+      "path": "docs/workspace/REFERENCES.md",
+      "bytes": 3218,
+      "sha256": "8f4a666e6db61f3b798838248519fea21f1affd57f3dd4a19e65b02704e2f352"
+    },
+    {
+      "path": "docs/workspace/VALIDATION.md",
+      "bytes": 1610,
+      "sha256": "0b5b893ad02a4443267cb6ee1a3c6e24dc1f312392845fe2407cf1bdfed77d9d"
+    },
+    {
+      "path": "docs/workspace/examples/action-approval-request.example.yaml",
+      "bytes": 1070,
+      "sha256": "f5ea36435201f5834b67ff8e48a998161c9fe4bdc14f15b9d30702282dba9f05"
+    },
+    {
+      "path": "docs/workspace/examples/approval-event.example.yaml",
+      "bytes": 1107,
+      "sha256": "3040d188a5105b661a4b8d718985eb15e17327fa44e16a3b625eedc15277c651"
+    },
+    {
+      "path": "docs/workspace/examples/approval-policy.example.yaml",
+      "bytes": 1511,
+      "sha256": "180218caa7098186ed6c652ffd8eb7294470539f5fc1b2e7147883111e56ce58"
+    },
+    {
+      "path": "docs/workspace/examples/approval-request.example.yaml",
+      "bytes": 1647,
+      "sha256": "e33ed367d07b2d2a1824a609a361626f2bb6f9d16f3f4b0cfcf17973ce6645f4"
+    },
+    {
+      "path": "docs/workspace/examples/requirement-snapshot.example.json",
+      "bytes": 414,
+      "sha256": "c5018074e08aee237119b25ff402ee1be09de99db077a401c5360e43862a1a04"
+    },
+    {
+      "path": "docs/workspace/examples/sync-outbox.example.yaml",
+      "bytes": 902,
+      "sha256": "c648d669af54e5b6b81f2086e771ad4085ed0b5d4b87d9ce07013fcc4b10f8f6"
+    },
+    {
+      "path": "docs/workspace/examples/workspace.example.yaml",
+      "bytes": 1148,
+      "sha256": "dd686c160705df7771b74570717698209864630357338c2e771b76788b495c63"
+    },
+    {
+      "path": "source-packages/sdlc-agent-rsi-docs.zip",
+      "bytes": 45475,
+      "sha256": "bb882cc9ab8283e22d2e4eda414870ea04ff0678d8946d608c1873e59fcee33a"
+    },
+    {
+      "path": "source-packages/sdlc-agent-workspace-docs.zip",
+      "bytes": 31706,
+      "sha256": "ffaaa156a1a7ae82b297dc45e043a18e18fe47c022696b57ee196f6187df4e51"
+    }
+  ]
+}

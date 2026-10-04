@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "capture_id": "3361588afe2f74ddf1b9490c3d29594fac4caadec123ce018b3758c007e893e1",
+  "created_at": "2026-10-01T12:00:00Z",
+  "data_scope": "example-scope",
+  "session_id": "session-example-01",
+  "response_id": "response-example-14",
+  "call_purpose": "task_execution",
+  "source_agent": {
+    "repository_id": "10001",
+    "repository_full_name": "example-org/requirements-agent",
+    "commit_sha": "1111111111111111111111111111111111111111",
+    "agent_group": "requirements",
+    "agent_id": "requirements-primary"
+  },
+  "workspace": {
+    "repository_id": "20001",
+    "repository_full_name": "example-org/project-workspace",
+    "commit_sha": "2222222222222222222222222222222222222222"
+  },
+  "kit": {
+    "name": "sdlc-dev-kit",
+    "version": "0.1.0"
+  },
+  "extractor": {
+    "version": "capture-0.1.0",
+    "prompt_version": "capture-system-0.1.0",
+    "model_id": "example-model"
+  },
+  "outcome": "no_observations",
+  "evidence": [],
+  "observations": []
+}

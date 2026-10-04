@@ -1,0 +1,308 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.invalid/sdlc-rsi/candidate.schema.json",
+  "title": "Immutable improvement candidate revision v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "candidate_id": {
+      "type": "string",
+      "pattern": "^CAND-[0-9]{4,}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "data_scope": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "source_observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "capture_id": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "observation_id": {
+            "type": "string",
+            "pattern": "^OBS-[a-f0-9]{64}-[0-9]{3}$"
+          },
+          "source_agent_repository_id": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          },
+          "capture_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500,
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)[A-Za-z0-9_.\\-/]+$"
+          }
+        },
+        "required": [
+          "capture_id",
+          "observation_id",
+          "source_agent_repository_id",
+          "capture_path"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 1000,
+      "uniqueItems": true
+    },
+    "hypothesis": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "proposed_mechanism": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "applies_when": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "does_not_apply_when": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "expected_benefit": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "minItems": 1,
+      "maxItems": 100,
+      "uniqueItems": true
+    },
+    "contradicting_observation_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "minItems": 0,
+      "maxItems": 100,
+      "uniqueItems": true
+    },
+    "scope": {
+      "enum": [
+        "agent_specific",
+        "shared",
+        "project_specific",
+        "dreaming_internal"
+      ]
+    },
+    "target": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "repository_id": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            },
+            "repository_full_name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "base_branch": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "base_commit": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            "ownership_rationale": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "proposed_paths": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)[A-Za-z0-9_.\\-/]+$"
+              },
+              "minItems": 1,
+              "maxItems": 50,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "repository_id",
+            "repository_full_name",
+            "base_branch",
+            "base_commit",
+            "ownership_rationale",
+            "proposed_paths"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "registry_revision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "policy_revision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "evaluation_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "development_cases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "minItems": 1,
+          "maxItems": 100,
+          "uniqueItems": true
+        },
+        "negative_cases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "minItems": 1,
+          "maxItems": 100,
+          "uniqueItems": true
+        },
+        "mandatory_invariants": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "minItems": 1,
+          "maxItems": 100,
+          "uniqueItems": true
+        },
+        "affected_consumers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "minItems": 0,
+          "maxItems": 100,
+          "uniqueItems": true
+        },
+        "acceptance_criteria_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "budget_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "development_cases",
+        "negative_cases",
+        "mandatory_invariants",
+        "affected_consumers",
+        "acceptance_criteria_ref",
+        "budget_ref"
+      ]
+    },
+    "supersedes_revision": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "candidate_id",
+    "revision",
+    "created_at",
+    "data_scope",
+    "source_observations",
+    "hypothesis",
+    "proposed_mechanism",
+    "applies_when",
+    "does_not_apply_when",
+    "expected_benefit",
+    "risks",
+    "contradicting_observation_ids",
+    "scope",
+    "target",
+    "registry_revision",
+    "policy_revision",
+    "evaluation_plan",
+    "supersedes_revision"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "scope": {
+            "const": "shared"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "evaluation_plan": {
+            "properties": {
+              "affected_consumers": {
+                "minItems": 2
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "capture_id": "ea1b45a774f5215c453ac1622808d9800f81085dc5f44e5ecd6008229d1bef14",
+  "created_at": "2026-10-01T12:00:00Z",
+  "data_scope": "example-scope",
+  "session_id": "session-example-01",
+  "response_id": "response-example-13",
+  "call_purpose": "task_execution",
+  "source_agent": {
+    "repository_id": "10001",
+    "repository_full_name": "example-org/requirements-agent",
+    "commit_sha": "1111111111111111111111111111111111111111",
+    "agent_group": "requirements",
+    "agent_id": "requirements-primary"
+  },
+  "workspace": {
+    "repository_id": "20001",
+    "repository_full_name": "example-org/project-workspace",
+    "commit_sha": "2222222222222222222222222222222222222222"
+  },
+  "kit": {
+    "name": "sdlc-dev-kit",
+    "version": "0.1.0"
+  },
+  "extractor": {
+    "version": "capture-0.1.0",
+    "prompt_version": "capture-system-0.1.0",
+    "model_id": "example-model"
+  },
+  "outcome": "observed",
+  "evidence": [
+    {
+      "ref_id": "artifact:approved-context:stakeholders",
+      "kind": "approved_artifact",
+      "redacted_excerpt": "The operations owner and support lead are confirmed stakeholders.",
+      "source_locator": "workspace-snapshot:example-approved-requirements:stakeholders"
+    },
+    {
+      "ref_id": "message:assistant:12",
+      "kind": "message",
+      "redacted_excerpt": "Who are the stakeholders for this process?",
+      "source_locator": "session-example-01/message-12"
+    },
+    {
+      "ref_id": "message:user:13",
+      "kind": "message",
+      "redacted_excerpt": "The stakeholders are already confirmed in the requirements context.",
+      "source_locator": "session-example-01/message-13"
+    }
+  ],
+  "observations": [
+    {
+      "signal_type": "user_correction",
+      "summary": "The agent requested stakeholder information already present in approved context.",
+      "trigger_context": "The user corrected a repeated stakeholder-clarification question.",
+      "expected_behavior": "Use confirmed stakeholder information unless there is evidence it needs reconfirmation.",
+      "observed_behavior": "The agent asked the user to supply stakeholder names again.",
+      "supporting_refs": [
+        "artifact:approved-context:stakeholders",
+        "message:assistant:12",
+        "message:user:13"
+      ],
+      "contradicting_refs": [],
+      "suspected_cause": "The confirmed requirements context may not have been consulted before asking.",
+      "attempted_fix": null,
+      "fix_status": "not_attempted",
+      "verification_refs": [],
+      "related_observation_ids": [],
+      "observation_id": "OBS-ea1b45a774f5215c453ac1622808d9800f81085dc5f44e5ecd6008229d1bef14-001"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+# SYNTHETIC DOCUMENTATION EXAMPLE — NOT PRODUCTION CONFIGURATION
+example_only: true
+schema_version: '0.1'
+request_id: APR-DEMO-042
+tenant_id: CLIENT-DEMO
+workspace_id: WS-DEMO-001
+kind: lifecycle
+stage_id: requirements_baseline
+work_item_ids:
+- WI-DEMO-001
+subject:
+  subject_id: SUBJECT-DEMO-BRD-001
+  type: artifact_bundle
+  repository_id: github-repo-demo-001
+  reviewed_commit: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  artifacts:
+  - artifact_id: BRD-DEMO-001
+    path: workspaces/WS-DEMO-001/artifacts/BRD.md
+    sha256: '1111111111111111111111111111111111111111111111111111111111111111'
+  dependencies:
+  - type: jira_requirement_snapshot
+    local_example_file: requirement-snapshot.example.json
+    source_instance_id: jira-tenant-demo
+    source_issue_id: '10120'
+    sha256: c5018074e08aee237119b25ff402ee1be09de99db077a401c5360e43862a1a04
+  scope_notes: Digest binds explicit files plus covered requirement fields, not all unrelated repository content.
+subject_digest:
+  algorithm: sha256
+  canonicalization: 'example JSON: UTF-8, sorted keys, compact separators, no trailing newline'
+  value: 88821963d5bfef1c38a148af73a60ff9582e8651b4cb672321ec9f260629459f
+policy_ref:
+  id: brd-baseline
+  path: governance/approval-policy.yaml
+  commit: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+depends_on: []
+requested_effect:
+  type: accept_baseline_then_allow_transition
+  transition_id: requirements_baselined
+  pull_request_number: 17
+  expected_head_sha: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+request_state: open
+decision_evaluation: pending
+created_by:
+  kind: service
+  id: requirements-runtime-demo
+created_at: '2026-10-01T17:10:00Z'
