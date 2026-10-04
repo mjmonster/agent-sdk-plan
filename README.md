@@ -1,17 +1,19 @@
 # SDLC SDK platform implementation plans
 
-Start with the [implementation plan](docs/superpowers/plans/2026-10-04-sdk-rsi-workspace-approval.md) and its [current design](docs/superpowers/specs/2026-10-04-rsi-workspace-approval-design.md).
+Start with the [MVP plan](docs/planning/2026-10-04-sdk-platform-mvp.md) for the smaller first release. The [full implementation plan](docs/superpowers/plans/2026-10-04-sdk-rsi-workspace-approval.md) and its [design](docs/superpowers/specs/2026-10-04-rsi-workspace-approval-design.md) remain the long-term roadmap.
 
-This repository contains the planning handoff for extending an existing `sdlc-dev-kit` installed across SDLC agents. Shared workspace, approval, capture, persistence, and RSI governance functions belong inside that SDK. A separate Dreaming Agent uses those functions to propose governed improvements.
+This repository contains the planning handoff for extending an existing `sdlc-dev-kit` installed across SDLC agents. Shared workspace, approval, capture, persistence coordination, and RSI governance logic belong inside that SDK. GitHub transport and authentication use the agent platform's existing MCP capability. A separate Dreaming Agent uses the shared functions to propose governed improvements.
 
 The plan preserves the existing SDK's Python version, tooling, packaging, and consumers. It does not prescribe a replacement SDK or a standalone controller product.
 
 ## Hand off to Copilot
 
 1. Open the existing SDK checkout in VS Code and make this planning bundle available in the workspace.
-2. Read the implementation plan, current design, and the SDK repository's own instructions.
-3. Start with task **INT-00**, which maps the plan's contracts and tests to actual SDK files, interfaces, and commands. The planning session did not have SDK source access.
-4. Implement the selected milestone using the plan's test-first steps. The [Copilot guide](docs/planning/copilot-handoff-guide.md) includes a starting prompt for milestone M1.
+2. Read the MVP plan and the SDK repository's own instructions. Its human-merge simplification is a proposal pending confirmation.
+3. Continue the reported **WS-01** implementation using the existing integration map and execution log. Reuse verified foundation work; do not restart INT-00. The planning session did not have SDK source access.
+4. Use the MVP plan's continuation prompt: direct implementation, no Superpowers or TDD, and available local SDK checks. Copilot cannot connect to the agent platform; hand off platform wiring and validation that require access. The [Copilot guide](docs/planning/copilot-handoff-guide.md) retains the older workflow as historical reference only.
+
+The MVP covers one real consumer, shared resumable work, capture, verified approval and one bounded improvement PR. The following milestones remain the full roadmap; completing an MVP subset does not complete them.
 
 | Milestone | Result |
 | --- | --- |
@@ -20,7 +22,7 @@ The plan preserves the existing SDK's Python version, tooling, packaging, and co
 | M3 | A separate bounded dreaming run produces an evaluated target proposal. |
 | M4 | Governed release, explicit adoption/rollback, and shared SDK installation verified. |
 
-The plan is ready for implementation handoff. This repository does not contain the SDK implementation or evidence that its tests or live end-to-end workflow have run.
+The MVP plan records its remaining release-boundary decision explicitly. This repository does not contain the SDK implementation or evidence that its tests or live end-to-end workflow have run.
 
 ## Supporting material and history
 
@@ -31,4 +33,4 @@ The plan is ready for implementation handoff. This repository does not contain t
 - [Superseded delivery-only proposal](docs/superpowers/specs/2026-10-03-delivery-foundation-design.md)
 - [Original package entry point](START-HERE.md), [manifest](handoff-manifest.json), and [validation record](HANDOFF-VALIDATION.md)
 
-Historical documents, schemas, examples, and source archives are preserved for traceability. Follow the 2026-10-04 SDK plan when older alternatives disagree. The legacy installer is preserved source material; it is not required to use this plan and must not be run against the combined handoff manifest.
+Historical documents, schemas, examples, and source archives are preserved for traceability. Use the MVP profile for first-release scope and the full SDK plan for retained long-term requirements. The legacy installer is preserved source material; it is not required to use these plans and must not be run against the combined handoff manifest.

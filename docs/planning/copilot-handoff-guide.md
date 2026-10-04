@@ -1,5 +1,11 @@
 # Moving the SDLC plan into VS Code and GitHub Copilot
 
+> **Current MVP instructions, 2026-10-04:** Use the [MVP plan and continuation prompt](2026-10-04-sdk-platform-mvp.md) from the reported WS-01 state. Use direct implementation without Superpowers or TDD. Copilot cannot connect to the agent platform: perform available local SDK checks and hand off inaccessible wiring/live validation to an operator. Resolve the proposed human-merge boundary before that slice. Reuse completed work. The older planning, test-first and M1 workflow below is preserved as historical full-roadmap guidance and does not govern MVP execution.
+
+## Historical full-roadmap guide
+
+The current MVP places GitHub transport/authentication on the agent platform's existing MCP capability. Copilot implements SDK logic and documented request/result boundaries; it must not add a replacement GitHub client or require local GitHub credentials. Platform tool mapping and live validation are operator work. Older adapter wording below is historical and does not override this boundary.
+
 Prepared 2026-10-03; scope updated 2026-10-04. Use the [SDK RSI/workspace/approval plan](../superpowers/plans/2026-10-04-sdk-rsi-workspace-approval.md) and its [current design](../superpowers/specs/2026-10-04-rsi-workspace-approval-design.md). This is a practical workflow recommendation, not a record that Copilot has been configured or implementation completed.
 
 ## What carries the project between tools
