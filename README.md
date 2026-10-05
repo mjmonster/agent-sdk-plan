@@ -9,7 +9,7 @@ The plan preserves the existing SDK's Python version, tooling, packaging, and co
 ## Hand off to Copilot
 
 1. Open the existing SDK checkout in VS Code and make this planning bundle available in the workspace.
-2. Read the MVP plan and the SDK repository's own instructions. Its human-merge simplification is a proposal pending confirmation.
+2. Read the MVP plan and the SDK repository's own instructions. Human-only merging is confirmed: the SDK verifies review/merge evidence and records acceptance.
 3. Continue the reported **WS-01** implementation using the existing integration map and execution log. Reuse verified foundation work; do not restart INT-00. The planning session did not have SDK source access.
 4. Use the MVP plan's continuation prompt: direct implementation, no Superpowers or TDD, and available local SDK checks. Copilot cannot connect to the agent platform; hand off platform wiring and validation that require access. The [Copilot guide](docs/planning/copilot-handoff-guide.md) retains the older workflow as historical reference only.
 
@@ -22,7 +22,7 @@ The MVP covers one real consumer, shared resumable work, capture, verified appro
 | M3 | A separate bounded dreaming run produces an evaluated target proposal. |
 | M4 | Governed release, explicit adoption/rollback, and shared SDK installation verified. |
 
-The MVP plan records its remaining release-boundary decision explicitly. This repository does not contain the SDK implementation or evidence that its tests or live end-to-end workflow have run.
+The MVP release boundary is confirmed. This repository does not contain the SDK implementation or evidence that its tests or live end-to-end workflow have run.
 
 ## Supporting material and history
 

@@ -1,8 +1,8 @@
 # SDK Workspace, Approval, and RSI MVP Plan
 
-Date: 2026-10-04, America/New_York.
+Date: 2026-10-04; scope confirmed 2026-10-05, America/New_York.
 
-**Status:** Proposed MVP release profile requested by the user. Implementation is reportedly at WS-01 in the separate SDK checkout; this planning session has not inspected that code or verified completed tasks.
+**Status:** MVP release scope confirmed by the user, including human-only merging on 2026-10-05. Implementation is reportedly at WS-01 in the separate SDK checkout; this planning session has not inspected that code or verified completed tasks.
 
 **Goal:** Demonstrate shared resumable work, exact-revision human approval, and one evidence-to-improvement PR through the existing `sdlc-dev-kit`, with minimal new infrastructure and implementation overhead.
 
@@ -18,7 +18,7 @@ Date: 2026-10-04, America/New_York.
 
 Confirmed constraints: lightweight SDK extension; workspace, approval, and RSI all represented; CLI and GitHub PR interaction; existing drafts; no new Python pin; no SDK source access required here; preserve completed work and the old plan; no Superpowers or TDD; Copilot has no agent-platform connection; GitHub access is the agent platform's existing MCP capability.
 
-**Proposed approval simplification:** A human merges in GitHub. The SDK verifies human review, the reviewed revision, and the observed merge before recording acceptance. It does not execute merges or arbitrary protected actions in this release. This choice is awaiting the user's answer; it is not a previously confirmed requirement. If SDK-executed merging is required, include full-plan APP-02 rather than disguising that work as a lightweight observer. Do not remove working application/recovery code already present.
+**Confirmed approval boundary (2026-10-05):** A human merges in GitHub. The SDK verifies human review, the reviewed revision, and the observed merge before recording acceptance. It does not execute merges or arbitrary protected actions in this release. SDK-executed merging and its full APP-02 coordination/recovery remain on the later roadmap. Do not remove working application/recovery code already present; keep SDK merge execution outside this MVP flow. No further scope confirmation is needed for MVP-2 under this boundary.
 
 MVP operating limits:
 
@@ -64,7 +64,7 @@ Read the existing integration map and execution log first. Do not repeat INT-00 
 | WS-01 | Finish shared resolution, checkpoints/questions and resume; preserve any additional implemented behavior. | New split/attach workflows and complex anchor discovery if absent. |
 | CAP-01, CAP-02 | Implement scoped admission and the real completion hook with existing schemas/resources. | Broader consumer integration and capture performance tuning. |
 | APP-01 | Implement revision-bound review evaluation for two explicit subject kinds. | New policies, role combinations, and additional action kinds. |
-| APP-02 | Under the proposed manual-merge boundary, verify/record external merge and recover missing records. | SDK effect execution, single-use authorization consumption and distributed application coordination. |
+| APP-02 | Under the confirmed human-only merge boundary, verify/record external merge and recover missing records. | SDK effect execution, single-use authorization consumption and distributed application coordination. |
 | RSI-01, RSI-02 | One bounded Dreaming run, one configured target, one candidate/PR, explicit behavioral evaluation. | Broader ownership routing, executable-code changes and cross-repository proposals. |
 | RSI-03 | Preserve merge/evaluation provenance; report release/adoption as unobserved unless independently verified. | Automated lifecycle records, consumer adoption/benefit measurement and rollback coordination. |
 | DIST-01, VERIFY-01 | Local package checks and an operator handoff for one real consumer/GitHub demonstration. | Second distinct consumer and full lifecycle/adoption/rollback acceptance. |
@@ -109,6 +109,8 @@ Use one concise execution-log entry per slice: changed files, local checks/resul
 
 **Depends on:** MVP-0. **Consumes:** trusted completed response, bounded authorized evidence, existing extraction client/assets. **Produces:** validated versioned capture and durable receipt/status.
 
+**SDK boundary:** [CAP-02 SDK completion/capture contract](cap-02-sdk-contract.md) defines the normalized event, trusted context, injected operations, result states and processing order. It is a proposed SDK interface, not an assumed existing platform callback. Copilot can implement this boundary locally while platform wiring remains pending.
+
 **Acceptance behavior (local checks where possible; platform checks deferred):**
 
 - A known correction yields a scoped observation with real evidence; no signal yields a valid empty capture. Preserve existing schema bounds and version fixtures.
@@ -118,14 +120,14 @@ Use one concise execution-log entry per slice: changed files, local checks/resul
 - Timeout after write reconciles the committed record; confirmed failure retains the original delivery output and exposes capture failure separately.
 
 - [ ] Implement the missing CAP-01 admission behavior using the existing versioned schemas and redaction path.
-- [ ] Implement CAP-02 against the existing documented completed-response interface; reuse committed receipts before extraction. Keep finite time/retry limits in existing configuration. Edit consumer wiring only if its source/contract is available; leave actual hook invocation for platform verification.
+- [ ] Implement CAP-02 using the linked SDK contract, reusing equivalent CORE/STORE/CAP-01 types and interfaces. Reuse committed receipts before extraction and retain finite host limits. Do not require an undocumented platform callback to implement the SDK entry point; native callback/MCP mapping and live invocation remain separate pending integration work.
 - [ ] Package the prompt/schema/skill through the existing resource loader as part of this slice, not a future framework task.
 
 ## MVP-2 — Verified review and observed acceptance
 
 **Depends on:** MVP-0; can precede MVP-1 if existing implementation favors it. **Consumes:** trusted subject/policy, authenticated human reviews, current GitHub state. **Produces:** pending/satisfied/blocked/stale review status and a separately verified accepted revision.
 
-This slice uses the proposed human-merge path. GitHub native branch rules and permission separation must enforce the chosen review/check requirements at merge time. The SDK cannot prevent an administrator bypass by observing afterward; it must reject unverified acceptance. Implement the local verification logic and adapter contracts without requiring a live platform session. An operator later verifies the deployed permission boundary; unsupported or unverifiable runtime evidence still fails closed.
+This slice uses the confirmed human-only merge path. GitHub native branch rules and permission separation must enforce the chosen review/check requirements at merge time. The SDK cannot prevent an administrator bypass by observing afterward; it must reject unverified acceptance. Implement the local verification logic and adapter contracts without requiring a live platform session. An operator later verifies the deployed permission boundary; unsupported or unverifiable runtime evidence still fails closed.
 
 **Acceptance behavior (local checks where possible; platform checks deferred):**
 
@@ -186,7 +188,10 @@ using docs/planning/2026-10-04-sdk-platform-mvp.md.
 Read the repository instructions and existing integration map/execution log.
 Preserve local work and reuse verified CORE/STORE/WS behavior; do not restart.
 Use this MVP profile for release scope and the full plan as a reference roadmap.
-Resolve the stated human-merge decision before implementing MVP-2.
+For CAP-02, use docs/planning/cap-02-sdk-contract.md for the SDK-side boundary;
+do not wait for an unknown native platform callback to implement local logic.
+Human-only merging is confirmed: implement MVP-2 verification/recording without
+an SDK merge executor or another scope-confirmation step.
 Use direct implementation. Do not use Superpowers or TDD/test-first workflows.
 The GitHub adapter is the agent platform's MCP capability, inaccessible from
 Copilot. Do not build an SDK GitHub client or require local GitHub credentials.
@@ -206,6 +211,6 @@ tasks complete for an MVP subset. Do not push, deploy or upgrade consumers.
 - [x] Define bounded slices, acceptance behavior, deferred work and an implementation handoff.
 - [x] Remove Superpowers/TDD execution requirements and separate local completion from platform validation.
 - [x] Locate GitHub transport/authentication on the agent platform's MCP; retain SDK logic and record/recovery contracts.
-- [ ] Confirm the proposed human-merge release boundary.
+- [x] User confirmed human-only merging for the MVP on 2026-10-05; SDK verification/recording remain in scope.
 - [ ] Receiving session verifies existing progress and implements the missing MVP behavior.
 - [ ] An operator with platform access completes remaining integration and live validation after Copilot's handoff.

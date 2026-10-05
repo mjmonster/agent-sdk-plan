@@ -1,6 +1,6 @@
 # Moving the SDLC plan into VS Code and GitHub Copilot
 
-> **Current MVP instructions, 2026-10-04:** Use the [MVP plan and continuation prompt](2026-10-04-sdk-platform-mvp.md) from the reported WS-01 state. Use direct implementation without Superpowers or TDD. Copilot cannot connect to the agent platform: perform available local SDK checks and hand off inaccessible wiring/live validation to an operator. Resolve the proposed human-merge boundary before that slice. Reuse completed work. The older planning, test-first and M1 workflow below is preserved as historical full-roadmap guidance and does not govern MVP execution.
+> **Current MVP instructions, 2026-10-05:** Use the [MVP plan and continuation prompt](2026-10-04-sdk-platform-mvp.md) from the reported WS-01 state. Use direct implementation without Superpowers or TDD. Copilot cannot connect to the agent platform: perform available local SDK checks and hand off inaccessible wiring/live validation to an operator. Human-only merging is confirmed; the SDK verifies and records acceptance without executing the merge. Use the [CAP-02 SDK contract](cap-02-sdk-contract.md) for local capture implementation. Reuse completed work. The older planning, test-first and M1 workflow below is preserved as historical full-roadmap guidance and does not govern MVP execution.
 
 ## Historical full-roadmap guide
 
